@@ -1,0 +1,856 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP Unit Keamanan - SDN Kebonagung 1</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #eef7ff;
+        color: #263238;
+        line-height: 1.7;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        color: white;
+        text-align: center;
+        padding: 45px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header::before,
+    .header::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.12);
+    }
+
+    .header::before {
+        width: 220px;
+        height: 220px;
+        top: -100px;
+        left: -70px;
+    }
+
+    .header::after {
+        width: 280px;
+        height: 280px;
+        bottom: -160px;
+        right: -80px;
+    }
+
+    .header .icon {
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .header h2 {
+        font-size: 21px;
+        margin-top: 5px;
+        font-weight: 500;
+    }
+
+    .header p {
+        margin-top: 12px;
+        font-size: 15px;
+        opacity: 0.95;
+    }
+
+    .container {
+        width: 92%;
+        max-width: 1150px;
+        margin: 35px auto;
+    }
+
+    .notice {
+        background: white;
+        border-left: 6px solid #0077b6;
+        padding: 20px 25px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    }
+
+    .notice strong {
+        color: #0077b6;
+    }
+
+    .section {
+        background: white;
+        margin-bottom: 25px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .section-title {
+        background: linear-gradient(90deg, #0077b6, #0096c7);
+        color: white;
+        padding: 17px 23px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .content {
+        padding: 25px;
+    }
+
+    .content p {
+        margin-bottom: 14px;
+        text-align: justify;
+    }
+
+    .content ul,
+    .content ol {
+        margin: 10px 0 15px 25px;
+    }
+
+    .content li {
+        margin-bottom: 7px;
+    }
+
+    .number {
+        display: inline-flex;
+        width: 32px;
+        height: 32px;
+        align-items: center;
+        justify-content: center;
+        background: #0077b6;
+        color: white;
+        border-radius: 50%;
+        margin-right: 8px;
+        font-weight: bold;
+    }
+
+    .sub-title {
+        color: #0077b6;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px 0 8px;
+        border-bottom: 2px solid #d9f0ff;
+        padding-bottom: 5px;
+    }
+
+    .goal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .goal-card {
+        padding: 18px;
+        background: #f1faff;
+        border-radius: 12px;
+        border: 1px solid #cceeff;
+        transition: 0.3s;
+    }
+
+    .goal-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0,119,182,0.15);
+    }
+
+    .goal-card .check {
+        color: #0096c7;
+        font-size: 22px;
+        font-weight: bold;
+        margin-right: 7px;
+    }
+
+    .task-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 18px;
+        margin-top: 15px;
+    }
+
+    .task-card {
+        background: #f8fcff;
+        border: 1px solid #d7edf8;
+        border-radius: 12px;
+        padding: 20px;
+        border-top: 5px solid #00a8e8;
+    }
+
+    .task-card h3 {
+        color: #0077b6;
+        margin-bottom: 10px;
+    }
+
+    .process {
+        position: relative;
+        margin: 20px 0;
+    }
+
+    .process-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        align-items: flex-start;
+    }
+
+    .process-number {
+        min-width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #0077b6;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .process-text {
+        background: #f4fbff;
+        border: 1px solid #d7edf8;
+        padding: 10px 15px;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .emergency {
+        background: #fff7ed;
+        border: 2px solid #ffb703;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 15px;
+    }
+
+    .emergency h3 {
+        color: #d97706;
+        margin-bottom: 10px;
+    }
+
+    .danger-list li::marker {
+        color: #d97706;
+    }
+
+    .document-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        margin-top: 15px;
+    }
+
+    .document-card {
+        background: #f3faff;
+        border: 1px solid #cdefff;
+        padding: 18px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: 600;
+        color: #005f8f;
+    }
+
+    .success-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .success-card {
+        background: linear-gradient(135deg, #e8f8ff, #ffffff);
+        padding: 18px;
+        border-radius: 12px;
+        border-left: 5px solid #00a8e8;
+    }
+
+    .asset-box {
+        background: #f7fcff;
+        border: 1px dashed #0077b6;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 15px;
+    }
+
+    .footer {
+        background: #023e8a;
+        color: white;
+        text-align: center;
+        padding: 28px 20px;
+        margin-top: 40px;
+    }
+
+    .footer strong {
+        font-size: 18px;
+    }
+
+    .footer p {
+        margin-top: 5px;
+        opacity: 0.9;
+    }
+
+    @media(max-width: 600px) {
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .header h2 {
+            font-size: 17px;
+        }
+
+        .content {
+            padding: 18px;
+        }
+
+        .section-title {
+            font-size: 17px;
+        }
+
+        .task-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="icon"><img src="arskasa.png" width="50" height="50"></div>
+    <h1>Standar Operasional Prosedur</h1>
+    <h2>Unit Keamanan</h2>
+    <p>SDN Kebonagung 1 Sukodono</p>
+    <p><strong>Pedoman Keamanan, Ketertiban, Keselamatan dan Perlindungan Warga Sekolah</strong></p>
+</header>
+
+<main class="container">
+
+    <div class="notice">
+        <strong>📌 Dokumen SOP Unit Keamanan</strong>
+        <p>
+            SOP ini menjadi pedoman bagi petugas keamanan dan seluruh warga
+            SDN Kebonagung 1 dalam menciptakan lingkungan sekolah yang aman,
+            tertib, nyaman, kondusif, dan mendukung proses pembelajaran.
+        </p>
+    </div>
+
+    <!-- 1 PENGERTIAN -->
+    <section class="section">
+        <div class="section-title">1. PENGERTIAN</div>
+        <div class="content">
+            <p>
+                SOP Unit Keamanan adalah pedoman kerja yang berisi tata cara,
+                mekanisme, serta standar pelaksanaan tugas bagi petugas keamanan
+                dan seluruh warga sekolah dalam menjaga keamanan, ketertiban,
+                keselamatan, serta perlindungan terhadap peserta didik, pendidik,
+                tenaga kependidikan, tamu, dan aset sekolah.
+            </p>
+
+            <p>
+                SOP ini disusun untuk memastikan seluruh kegiatan di lingkungan
+                SDN Kebonagung 1 berlangsung secara aman, tertib, nyaman, dan
+                kondusif sehingga mendukung tercapainya proses pembelajaran
+                yang efektif.
+            </p>
+
+            <p>
+                SOP Keamanan juga menjadi acuan dalam pengawasan keluar masuk
+                warga sekolah dan tamu, pengamanan lingkungan sekolah,
+                penanganan kejadian atau keadaan darurat, serta koordinasi
+                dengan pihak terkait apabila terjadi gangguan keamanan.
+            </p>
+
+            <p>
+                Dengan adanya SOP ini, setiap petugas memiliki pedoman yang jelas
+                dalam melaksanakan tugas secara profesional, konsisten, dan
+                bertanggung jawab sesuai dengan ketentuan yang berlaku.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2 TUJUAN -->
+    <section class="section">
+        <div class="section-title">2. TUJUAN</div>
+        <div class="content">
+
+            <div class="goal-grid">
+
+                <div class="goal-card">
+                    <span class="check">✓</span>
+                    Mewujudkan lingkungan sekolah yang aman, tertib, nyaman,
+                    dan kondusif.
+                </div>
+
+                <div class="goal-card">
+                    <span class="check">✓</span>
+                    Menjamin keselamatan seluruh warga sekolah.
+                </div>
+
+                <div class="goal-card">
+                    <span class="check">✓</span>
+                    Melindungi aset dan fasilitas sekolah dari kehilangan
+                    maupun kerusakan.
+                </div>
+
+                <div class="goal-card">
+                    <span class="check">✓</span>
+                    Mengendalikan akses keluar masuk orang dan kendaraan.
+                </div>
+
+                <div class="goal-card">
+                    <span class="check">✓</span>
+                    Memberikan pedoman kerja bagi petugas keamanan.
+                </div>
+
+                <div class="goal-card">
+                    <span class="check">✓</span>
+                    Meningkatkan kesiapsiagaan dalam menghadapi keadaan darurat.
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 RUANG LINGKUP -->
+    <section class="section">
+        <div class="section-title">3. RUANG LINGKUP</div>
+        <div class="content">
+            <p>
+                SOP ini berlaku bagi seluruh petugas keamanan, guru, tenaga
+                kependidikan, peserta didik, tamu, orang tua/wali murid, dan
+                seluruh pihak yang berada di lingkungan SDN Kebonagung 1.
+            </p>
+        </div>
+    </section>
+
+    <!-- 4 TUGAS -->
+    <section class="section">
+        <div class="section-title">4. TUGAS DAN TANGGUNG JAWAB</div>
+        <div class="content">
+
+            <div class="task-grid">
+
+                <div class="task-card">
+                    <h3>1. 🏫 Menjaga Keamanan Lingkungan Sekolah</h3>
+                    <ul>
+                        <li>Melaksanakan patroli rutin.</li>
+                        <li>Mengawasi seluruh area sekolah.</li>
+                        <li>Mencegah gangguan keamanan.</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>2. 🚪 Pengawasan Gerbang Sekolah</h3>
+                    <ul>
+                        <li>Membuka dan menutup gerbang sesuai jadwal.</li>
+                        <li>Mengawasi lalu lintas kendaraan.</li>
+                        <li>Membantu penyeberangan siswa apabila diperlukan.</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>3. 👥 Pengawasan Tamu</h3>
+                    <ul>
+                        <li>Menanyakan maksud dan tujuan kedatangan.</li>
+                        <li>Mencatat identitas tamu pada buku tamu.</li>
+                        <li>Mengarahkan tamu menuju ruang pelayanan.</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>4. 🎒 Pengamanan Peserta Didik</h3>
+                    <ul>
+                        <li>Mengawasi saat datang, istirahat, dan pulang sekolah.</li>
+                        <li>Membantu menjaga ketertiban di lingkungan sekolah.</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>5. 📦 Pengamanan Barang Milik Sekolah</h3>
+                    <ul>
+                        <li>Mengawasi aset sekolah.</li>
+                        <li>Melaporkan apabila terdapat kerusakan atau kehilangan.</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>6. 🚨 Penanganan Keadaan Darurat</h3>
+                    <ul>
+                        <li>Memberikan tindakan awal pada kondisi darurat.</li>
+                        <li>Menghubungi pihak terkait apabila diperlukan.</li>
+                        <li>Membantu proses evakuasi warga sekolah.</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>7. 📝 Pelaporan</h3>
+                    <ul>
+                        <li>Membuat laporan kegiatan harian.</li>
+                        <li>Melaporkan setiap kejadian kepada Kepala Sekolah atau guru piket.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 PROSES KERJA -->
+    <section class="section">
+        <div class="section-title">5. PROSES KERJA</div>
+        <div class="content">
+
+            <h3 class="sub-title">1. Sebelum Jam Sekolah</h3>
+            <p><strong>Petugas keamanan wajib:</strong></p>
+            <ul>
+                <li>Hadir 30 menit sebelum kegiatan belajar.</li>
+                <li>Membuka gerbang sekolah.</li>
+                <li>Memeriksa kondisi lingkungan sekolah.</li>
+                <li>Memastikan seluruh area dalam keadaan aman.</li>
+                <li>Mengatur arus kendaraan orang tua.</li>
+            </ul>
+
+            <h3 class="sub-title">2. Saat Kedatangan Peserta Didik</h3>
+            <ul>
+                <li>Mengawasi pintu masuk.</li>
+                <li>Membantu siswa menyeberang jalan apabila diperlukan.</li>
+                <li>Mengatur kendaraan agar tidak terjadi kemacetan.</li>
+                <li>Mengawasi orang yang masuk ke lingkungan sekolah.</li>
+            </ul>
+
+            <h3 class="sub-title">3. Selama Jam Pembelajaran</h3>
+            <ul>
+                <li>Melaksanakan patroli setiap 1–2 jam.</li>
+                <li>Mengawasi area parkir.</li>
+                <li>Mengawasi lingkungan sekolah.</li>
+                <li>Memastikan gerbang tetap dalam pengawasan.</li>
+                <li>Mencatat tamu yang datang.</li>
+                <li>Mengarahkan tamu ke ruang guru atau tata usaha.</li>
+            </ul>
+
+            <h3 class="sub-title">4. Saat Istirahat</h3>
+            <ul>
+                <li>Mengawasi halaman sekolah.</li>
+                <li>Mengantisipasi potensi kecelakaan.</li>
+                <li>Membantu menjaga ketertiban siswa.</li>
+            </ul>
+
+            <h3 class="sub-title">5. Saat Jam Pulang</h3>
+            <ul>
+                <li>Membuka akses keluar.</li>
+                <li>Mengatur kendaraan penjemput.</li>
+                <li>Mengawasi siswa hingga dijemput.</li>
+                <li>Memastikan tidak ada siswa yang tertinggal.</li>
+            </ul>
+
+            <h3 class="sub-title">6. Setelah Jam Sekolah</h3>
+            <ul>
+                <li>Melakukan pemeriksaan seluruh ruangan dari bagian luar.</li>
+                <li>Memastikan gerbang terkunci.</li>
+                <li>Memastikan seluruh aset sekolah aman.</li>
+                <li>Mengisi jurnal keamanan harian.</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- PENANGANAN TAMU -->
+    <section class="section">
+        <div class="section-title">7. PENANGANAN TAMU</div>
+        <div class="content">
+
+            <p>
+                Setiap tamu yang memasuki lingkungan SDN Kebonagung 1 wajib
+                mengikuti prosedur pelayanan dan pencatatan yang telah
+                ditetapkan.
+            </p>
+
+            <div class="process">
+
+                <div class="process-item">
+                    <div class="process-number">1</div>
+                    <div class="process-text">Tamu datang.</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">2</div>
+                    <div class="process-text">Petugas menyapa dengan sopan.</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">3</div>
+                    <div class="process-text">Menanyakan tujuan kedatangan.</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">4</div>
+                    <div class="process-text">Meminta identitas tamu.</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">5</div>
+                    <div class="process-text">Tamu mengisi buku tamu.</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">6</div>
+                    <div class="process-text">Menghubungi guru/TU yang dituju.</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">7</div>
+                    <div class="process-text">Mengarahkan tamu menuju ruang yang dituju.</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">8</div>
+                    <div class="process-text">
+                        Tamu meninggalkan sekolah dan mengisi jam keluar.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KEADAAN DARURAT -->
+    <section class="section">
+        <div class="section-title">8. PENANGANAN KEADAAN DARURAT</div>
+        <div class="content">
+
+            <div class="emergency">
+                <h3>🚨 Kondisi yang Perlu Diantisipasi</h3>
+
+                <ul class="danger-list">
+                    <li>Kebakaran.</li>
+                    <li>Gempa bumi.</li>
+                    <li>Banjir.</li>
+                    <li>Orang asing mencurigakan.</li>
+                    <li>Kerusakan fasilitas.</li>
+                    <li>Kehilangan barang.</li>
+                    <li>Gangguan keamanan lainnya.</li>
+                </ul>
+            </div>
+
+            <h3 class="sub-title">Tindakan Petugas</h3>
+
+            <div class="process">
+
+                <div class="process-item">
+                    <div class="process-number">1</div>
+                    <div class="process-text">
+                        Tetap tenang dan tidak membuat kepanikan.
+                    </div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">2</div>
+                    <div class="process-text">
+                        Mengamankan peserta didik dan warga sekolah.
+                    </div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">3</div>
+                    <div class="process-text">
+                        Menghubungi Kepala Sekolah.
+                    </div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">4</div>
+                    <div class="process-text">
+                        Menghubungi layanan darurat bila diperlukan.
+                    </div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">5</div>
+                    <div class="process-text">
+                        Membantu proses evakuasi.
+                    </div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">6</div>
+                    <div class="process-text">
+                        Membuat laporan kejadian.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INVENTARIS -->
+    <section class="section">
+        <div class="section-title">9. PENGAWASAN BARANG INVENTARIS SEKOLAH</div>
+        <div class="content">
+
+            <div class="asset-box">
+                <ul>
+                    <li>Mengawasi ruang penyimpanan barang inventaris.</li>
+
+                    <li>
+                        Memastikan barang inventaris tidak dipindahkan tanpa
+                        seizin penanggung jawab aset.
+                    </li>
+
+                    <li>
+                        Memastikan barang inventaris berada pada tempatnya.
+                    </li>
+
+                    <li>
+                        Setiap barang inventaris yang dipinjam harus mendapat
+                        izin dari petugas aset dan dicatat dalam buku peminjaman
+                        inventaris sekolah.
+                    </li>
+
+                    <li>
+                        Mencatat jenis barang, keadaan, dan jumlah aset.
+                    </li>
+
+                    <li>
+                        Membantu proses pemeriksaan dan pendataan barang yang
+                        hilang atau rusak.
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CATATAN -->
+    <section class="section">
+        <div class="section-title">6. CATATAN</div>
+        <div class="content">
+
+            <p><strong>Petugas keamanan wajib:</strong></p>
+
+            <ul>
+                <li>Berpakaian rapi dan menggunakan seragam sesuai ketentuan.</li>
+                <li>Bersikap ramah, sopan, dan profesional.</li>
+                <li>Tidak meninggalkan pos tanpa izin.</li>
+                <li>Menjaga kerahasiaan informasi sekolah.</li>
+                <li>Tidak menerima tamu tanpa prosedur.</li>
+                <li>Mengisi Buku Tamu setiap hari.</li>
+                <li>Mencatat dan melaporkan kejadian atau insiden terkait keamanan sekolah.</li>
+                <li>
+                    Berkoordinasi dengan guru piket, wali kelas, dan tenaga
+                    kependidikan apabila terjadi kondisi yang memerlukan
+                    penanganan bersama.
+                </li>
+                <li>
+                    Melakukan evaluasi rutin terhadap kinerja unit keamanan dan
+                    menyempurnakan prosedur kerja yang diperlukan.
+                </li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- DOKUMEN PENDUKUNG -->
+    <section class="section">
+        <div class="section-title">7. DOKUMEN PENDUKUNG</div>
+        <div class="content">
+
+            <div class="document-grid">
+
+                <div class="document-card">📖 Buku Tamu</div>
+
+                <div class="document-card">
+                    📋 Jurnal Keamanan Harian
+                </div>
+
+                <div class="document-card">
+                    📝 Buku Mutasi Petugas
+                </div>
+
+                <div class="document-card">
+                    📦 Daftar Inventaris Aset
+                </div>
+
+                <div class="document-card">
+                    📄 Formulir Laporan Kejadian
+                </div>
+
+                <div class="document-card">
+                    🕐 Jadwal Piket Keamanan
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INDIKATOR -->
+    <section class="section">
+        <div class="section-title">8. INDIKATOR KEBERHASILAN</div>
+        <div class="content">
+
+            <div class="success-grid">
+
+                <div class="success-card">
+                    <strong>🛡️ Lingkungan Aman</strong>
+                    <p>Lingkungan sekolah aman dan tertib.</p>
+                </div>
+
+                <div class="success-card">
+                    <strong>🏫 Aset Terlindungi</strong>
+                    <p>Tidak terjadi kehilangan aset sekolah.</p>
+                </div>
+
+                <div class="success-card">
+                    <strong>👥 Tamu Tercatat</strong>
+                    <p>Seluruh tamu tercatat dalam buku tamu.</p>
+                </div>
+
+                <div class="success-card">
+                    <strong>📚 Pembelajaran Kondusif</strong>
+                    <p>
+                        Tidak terjadi gangguan keamanan yang menghambat
+                        pembelajaran.
+                    </p>
+                </div>
+
+                <div class="success-card">
+                    <strong>🚨 Tanggap Darurat</strong>
+                    <p>
+                        Keadaan darurat dapat ditangani sesuai prosedur.
+                    </p>
+                </div>
+
+                <div class="success-card">
+                    <strong>📝 Administrasi Lengkap</strong>
+                    <p>
+                        Laporan keamanan tersusun setiap hari.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <strong><img src="arskasa.png" alt="" srcset=""> SDN KEBONAGUNG 1 SUKODONO</strong>
+    <p>Standar Operasional Prosedur Unit Keamanan</p>
+    <p>Menjaga Keamanan • Membangun Kenyamanan • Mendukung Pembelajaran</p>
+</footer>
+
+</body>
+</html>
+```

@@ -1,0 +1,406 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perayaan Tahun Baru Islam 1 Muharram 1448 H - SDN Kebonagung 1</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.35), transparent 30%),
+        linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea);
+      color: #164e63;
+      line-height: 1.8;
+    }
+
+    /* Ornamen islami */
+    .ornamen {
+      position: fixed;
+      font-size: 45px;
+      opacity: .18;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .ornamen1 { top: 30px; left: 20px; }
+    .ornamen2 { top: 120px; right: 25px; }
+    .ornamen3 { bottom: 30px; left: 25px; }
+    .ornamen4 { bottom: 100px; right: 25px; }
+
+    header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 65px 20px;
+      color: white;
+      background:
+        linear-gradient(rgba(0, 105, 92, .82), rgba(0, 77, 64, .88)),
+        url("https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+
+    header .bulan {
+      font-size: 65px;
+      margin-bottom: 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    header h1 {
+      font-size: clamp(28px, 5vw, 50px);
+      margin-bottom: 10px;
+      text-shadow: 3px 3px 8px rgba(0,0,0,.4);
+    }
+
+    header h2 {
+      font-size: 22px;
+      font-weight: 500;
+      color: #dfffe8;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 22px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1050px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.94);
+      border-radius: 25px;
+      padding: 35px;
+      margin-bottom: 30px;
+      box-shadow: 0 12px 35px rgba(0,80,70,.12);
+      border: 2px solid rgba(0,137,123,.12);
+    }
+
+    .judul {
+      text-align: center;
+      color: #00796b;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .judul::before {
+      content: "☪ ";
+    }
+
+    .judul::after {
+      content: " ☪";
+    }
+
+    .isi {
+      font-size: 17px;
+      text-align: justify;
+    }
+
+    .highlight {
+      margin: 25px 0;
+      padding: 22px;
+      border-left: 6px solid #009688;
+      background: linear-gradient(90deg, #e0f2f1, #f1fffd);
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    /* Galeri */
+    .galeri {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .foto {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.18);
+      background: #dff7f5;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .foto:hover img {
+      transform: scale(1.08);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      color: white;
+      text-align: center;
+      background: linear-gradient(transparent, rgba(0,0,0,.75));
+      font-weight: bold;
+    }
+
+    /* Nilai */
+    .nilai {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .nilai-item {
+      text-align: center;
+      padding: 25px 15px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #e0f2f1, #ffffff);
+      transition: .3s;
+    }
+
+    .nilai-item:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 10px 20px rgba(0,121,107,.15);
+    }
+
+    .nilai-item .icon {
+      font-size: 40px;
+      margin-bottom: 8px;
+    }
+
+    .nilai-item h3 {
+      color: #00796b;
+      margin-bottom: 5px;
+    }
+
+    .quote {
+      text-align: center;
+      padding: 35px 20px;
+      background: linear-gradient(135deg, #00695c, #00897b);
+      color: white;
+      border-radius: 25px;
+      font-size: 21px;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0,105,92,.25);
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 12px;
+      font-size: 14px;
+      opacity: .85;
+      font-weight: normal;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px 20px;
+      background: #004d40;
+      color: white;
+    }
+
+    footer .bintang {
+      font-size: 25px;
+      letter-spacing: 10px;
+      margin-bottom: 10px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media(max-width: 700px) {
+      .galeri,
+      .nilai {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 25px 20px;
+      }
+
+      .foto img {
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Ornamen Islami -->
+  <div class="ornamen ornamen1">☪</div>
+  <div class="ornamen ornamen2">☾</div>
+  <div class="ornamen ornamen3">✦</div>
+  <div class="ornamen ornamen4">🕌</div>
+
+  <header>
+    <div class="bulan">☪</div>
+
+    <h1>Semarak Tahun Baru Islam</h1>
+
+    <h2>1 Muharram 1448 H</h2>
+
+    <div class="badge">
+      🕌 SDN Kebonagung 1 Sukodono 🕌
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <h2 class="judul">Pawai Tahun Baru Islam</h2>
+
+      <p class="isi">
+        Dalam rangka menyambut datangnya Tahun Baru Islam 1 Muharram 1448 H,
+        SDN Kebonagung 1 Sukodono menggelar kegiatan pawai yang berlangsung
+        dengan penuh semangat, keceriaan, dan nuansa religius. Kegiatan ini
+        menjadi salah satu momen istimewa bagi seluruh warga sekolah untuk
+        menyambut tahun baru Hijriah sekaligus menanamkan kecintaan terhadap
+        nilai-nilai keislaman sejak dini.
+      </p>
+
+      <div class="highlight">
+        🌙 <strong>Semangat Hijrah, Semangat Menjadi Lebih Baik!</strong><br>
+        Pawai bukan sekadar berjalan bersama, tetapi menjadi momentum untuk
+        mengajak seluruh peserta didik mengawali tahun baru dengan tekad,
+        akhlak mulia, semangat belajar, dan perilaku yang semakin baik.
+      </div>
+
+      <p class="isi">
+        Para peserta didik mengikuti pawai dengan penuh antusias. Beragam
+        busana bernuansa Islami, atribut menarik, serta ekspresi ceria
+        menghiasi kegiatan. Dengan penuh semangat, para peserta berjalan
+        bersama sambil membawa pesan-pesan positif tentang Tahun Baru Islam.
+      </p>
+
+      <p class="isi" style="margin-top:15px;">
+        Suasana semakin meriah dengan kebersamaan antara peserta didik,
+        guru, dan seluruh warga sekolah. Kegiatan ini tidak hanya menjadi
+        sarana untuk memperingati Tahun Baru Islam, tetapi juga menjadi
+        kesempatan untuk mempererat tali silaturahmi dan membangun karakter
+        peserta didik yang religius, percaya diri, disiplin, serta peduli
+        terhadap sesama.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2 class="judul">Keseruan Pawai</h2>
+
+      <div class="galeri">
+
+        <!-- FOTO 1 -->
+        <div class="foto">
+          <img
+            src="mh2.jpeg"
+            alt="Kegiatan pawai Tahun Baru Islam SDN Kebonagung 1"
+            onerror="this.src='https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1000&q=80';"
+          >
+          <div class="caption">
+            🌙 Semangat Peserta Didik Mengikuti Pawai
+          </div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="foto">
+          <img
+            src="mh3.jpeg"
+            alt="Peserta pawai Tahun Baru Islam SDN Kebonagung 1"
+            onerror="this.src='https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=1000&q=80';"
+          >
+          <div class="caption">
+            🕌 Kebersamaan dalam Semarak Tahun Baru Islam
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="judul">Makna Kegiatan</h2>
+
+      <p class="isi">
+        Peringatan 1 Muharram mengajarkan bahwa pergantian tahun merupakan
+        kesempatan untuk melakukan refleksi dan memperbaiki diri. Melalui
+        kegiatan pawai, peserta didik diajak memahami bahwa hijrah tidak
+        hanya berarti berpindah tempat, tetapi juga berusaha meninggalkan
+        kebiasaan yang kurang baik menuju kebiasaan yang lebih positif.
+      </p>
+
+      <div class="nilai">
+
+        <div class="nilai-item">
+          <div class="icon">🌙</div>
+          <h3>Religius</h3>
+          <p>Menumbuhkan kecintaan terhadap nilai-nilai Islam.</p>
+        </div>
+
+        <div class="nilai-item">
+          <div class="icon">🤝</div>
+          <h3>Kebersamaan</h3>
+          <p>Mempererat persaudaraan dan silaturahmi.</p>
+        </div>
+
+        <div class="nilai-item">
+          <div class="icon">⭐</div>
+          <h3>Semangat</h3>
+          <p>Membangun tekad untuk menjadi pribadi yang lebih baik.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="quote">
+      ✨ "Tahun Baru Islam adalah awal untuk menata langkah,
+      memperbaiki diri, dan menebarkan kebaikan." ✨
+      <small>
+        — Semangat Hijrah Keluarga Besar SDN Kebonagung 1 —
+      </small>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="bintang">✦ ✧ ☪ ✧ ✦</div>
+
+    <strong>SDN KEBONAGUNG 1 SUKODONO</strong>
+
+    <p>
+      Semarak Tahun Baru Islam 1 Muharram 1448 H
+    </p>
+
+    <p style="margin-top:8px; font-size:13px; opacity:.8;">
+      Bersama melangkah menuju pribadi yang lebih baik.
+    </p>
+  </footer>
+
+</body>
+</html>
+```

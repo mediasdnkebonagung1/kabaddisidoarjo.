@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prestasi Kabaddi SDN Kebonagung 1 - Piala Walikota Surabaya 2026</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #e0f7ff, #ffffff, #dff5ff);
+      color: #183b56;
+      line-height: 1.8;
+    }
+
+    /* HEADER */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0077b6, #00a8e8, #023e8a);
+      color: white;
+      text-align: center;
+      padding: 70px 20px 80px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "🏆";
+      position: absolute;
+      font-size: 90px;
+      opacity: 0.12;
+    }
+
+    .hero::before {
+      left: 5%;
+      top: 20px;
+      transform: rotate(-15deg);
+    }
+
+    .hero::after {
+      right: 5%;
+      bottom: 10px;
+      transform: rotate(15deg);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 2px solid rgba(255,255,255,0.5);
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.25;
+      max-width: 950px;
+      margin: auto;
+      text-shadow: 3px 4px 0 rgba(0,0,0,0.15);
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1050px;
+      margin: -35px auto 50px;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* INFO */
+    .info-box {
+      background: white;
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,80,120,0.15);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-bottom: 35px;
+    }
+
+    .info-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #f0fbff, #ffffff);
+      border-left: 5px solid #00a8e8;
+    }
+
+    .info-item strong {
+      display: block;
+      color: #0077b6;
+      font-size: 15px;
+    }
+
+    .info-item span {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* ARTICLE */
+    .article {
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 12px 35px rgba(0,80,120,0.14);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article::before {
+      content: "KABADDI";
+      position: absolute;
+      right: -35px;
+      top: 80px;
+      font-size: 70px;
+      font-weight: 900;
+      color: rgba(0,168,232,0.05);
+      transform: rotate(-90deg);
+    }
+
+    .article h2 {
+      color: #0077b6;
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-left: 7px solid #00a8e8;
+      padding-left: 15px;
+    }
+
+    .article p {
+      margin-bottom: 18px;
+      text-align: justify;
+      font-size: 16px;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #e6f9ff, #f8fdff);
+      border-radius: 20px;
+      padding: 25px;
+      margin: 25px 0;
+      border: 1px solid #bdefff;
+      box-shadow: inset 0 0 20px rgba(0,168,232,0.05);
+    }
+
+    /* FOTO */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin: 30px 0;
+    }
+
+    .photo-card {
+      background: white;
+      padding: 10px;
+      border-radius: 22px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .caption {
+      text-align: center;
+      padding: 12px 5px 5px;
+      font-weight: 600;
+      color: #0077b6;
+    }
+
+    /* PRESTASI */
+    .prestasi-title {
+      text-align: center;
+      color: #0077b6;
+      font-size: 30px;
+      margin: 35px 0 20px;
+    }
+
+    .prestasi {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .prestasi-card {
+      text-align: center;
+      padding: 25px 15px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #ffffff, #e9faff);
+      box-shadow: 0 8px 20px rgba(0,100,150,0.12);
+      border-top: 5px solid #00a8e8;
+      transition: 0.3s;
+    }
+
+    .prestasi-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .trophy {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    .prestasi-card h3 {
+      color: #0077b6;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .prestasi-card p {
+      text-align: center;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    /* QUOTE */
+    .quote {
+      margin-top: 35px;
+      padding: 30px;
+      text-align: center;
+      background: linear-gradient(135deg, #0077b6, #023e8a);
+      color: white;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,80,140,0.2);
+    }
+
+    .quote .icon {
+      font-size: 40px;
+    }
+
+    .quote h3 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .quote p {
+      text-align: center;
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      background: #023e8a;
+      color: white;
+      padding: 30px 20px;
+      margin-top: 50px;
+    }
+
+    footer strong {
+      color: #90e0ef;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .info-box,
+      .gallery,
+      .prestasi {
+        grid-template-columns: 1fr;
+      }
+
+      .article {
+        padding: 25px 20px;
+      }
+
+      .photo-card img {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="badge">🏆 PRESTASI SISWA 🏆</div>
+
+    <h1>
+      SDN Kebonagung 1 Raih Prestasi Gemilang
+      di Piala Walikota Surabaya 2026
+    </h1>
+
+    <p>
+      Semangat, Sportivitas, dan Pantang Menyerah dalam Perjuangan Kabaddi
+    </p>
+  </header>
+
+  <main class="container">
+
+    <!-- INFORMASI KEGIATAN -->
+    <section class="info-box">
+
+      <div class="info-item">
+        <strong>📅 Waktu Pelaksanaan</strong>
+        <span>14–15 Mei 2026</span>
+      </div>
+
+      <div class="info-item">
+        <strong>🏆 Nama Kegiatan</strong>
+        <span>Piala Walikota Surabaya 2026</span>
+      </div>
+
+      <div class="info-item">
+        <strong>🏫 Sekolah</strong>
+        <span>SDN Kebonagung 1 Sukodono</span>
+      </div>
+
+      <div class="info-item">
+        <strong>🥇 Cabang Olahraga</strong>
+        <span>Kabaddi</span>
+      </div>
+
+    </section>
+
+    <!-- ARTIKEL -->
+    <article class="article">
+
+      <h2>🔥 Semangat Juang di Arena Kabaddi</h2>
+
+      <p>
+        <strong>SDN Kebonagung 1 Sukodono</strong> kembali menorehkan
+        prestasi membanggakan melalui cabang olahraga Kabaddi. Prestasi
+        tersebut diraih dalam ajang bergengsi
+        <strong>Piala Walikota Surabaya 2026</strong> yang dilaksanakan
+        pada <strong>14–15 Mei 2026</strong>.
+      </p>
+
+      <p>
+        Keikutsertaan dalam kompetisi ini menjadi pengalaman berharga bagi
+        para peserta didik. Mereka tidak hanya berlatih untuk memenangkan
+        pertandingan, tetapi juga belajar mengenai kerja sama tim,
+        kedisiplinan, keberanian, sportivitas, serta bagaimana menghadapi
+        tekanan dan tantangan dalam sebuah pertandingan.
+      </p>
+
+      <div class="highlight">
+        <p>
+          💪 <strong>Perjuangan tidak selalu mudah.</strong> Setiap
+          pertandingan membutuhkan konsentrasi, keberanian, strategi, dan
+          kekompakan. Para atlet Kabaddi SDN Kebonagung 1 menunjukkan
+          semangat pantang menyerah. Ketika menghadapi lawan yang tangguh,
+          mereka tetap berusaha memberikan kemampuan terbaik hingga
+          pertandingan berakhir.
+        </p>
+      </div>
+
+      <!-- FOTO -->
+      <div class="gallery">
+
+        <div class="photo-card">
+          <img
+            src="kbd1.jpeg"
+            alt="Kegiatan Kabaddi SDN Kebonagung 1">
+          <div class="caption">
+            🏃 Semangat peserta dalam pertandingan Kabaddi
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img
+            src="kbd2.jpeg"
+            alt="Tim Kabaddi SDN Kebonagung 1">
+          <div class="caption">
+            🏆 Kebersamaan dan kekompakan tim Kabaddi
+          </div>
+        </div>
+
+      </div>
+
+      <h2>🏅 Prestasi yang Membanggakan</h2>
+
+      <p>
+        Perjuangan keras tersebut akhirnya membuahkan hasil yang sangat
+        membanggakan. Peserta didik SDN Kebonagung 1 berhasil meraih
+        sejumlah prestasi dalam kategori Super Five. Prestasi ini menjadi
+        bukti bahwa kerja keras, latihan, disiplin, dan semangat pantang
+        menyerah dapat menghasilkan pencapaian yang luar biasa.
+      </p>
+
+      <!-- PRESTASI -->
+      <h3 class="prestasi-title">🥇 Daftar Prestasi 🥈</h3>
+
+      <div class="prestasi">
+
+        <div class="prestasi-card">
+          <div class="trophy">🥇</div>
+          <h3>Juara 1</h3>
+          <p>
+            Kategori<br>
+            <strong>Super Five Putra</strong>
+          </p>
+        </div>
+
+        <div class="prestasi-card">
+          <div class="trophy">🥈</div>
+          <h3>Juara 2</h3>
+          <p>
+            Kategori<br>
+            <strong>Super Five Putra</strong>
+          </p>
+        </div>
+
+        <div class="prestasi-card">
+          <div class="trophy">🥈</div>
+          <h3>Juara 2</h3>
+          <p>
+            Kategori<br>
+            <strong>Super Five Putri</strong>
+          </p>
+        </div>
+
+      </div>
+
+      <h2 style="margin-top:40px;">🌟 Bukan Sekadar Meraih Juara</h2>
+
+      <p>
+        Lebih dari sekadar piala dan penghargaan, keikutsertaan dalam
+        Piala Walikota Surabaya 2026 memberikan pelajaran penting bagi
+        para peserta didik. Mereka belajar bahwa keberhasilan lahir dari
+        proses yang panjang, latihan yang konsisten, dan keberanian untuk
+        terus mencoba.
+      </p>
+
+      <p>
+        Setiap serangan, pertahanan, dan kerja sama yang dilakukan di
+        lapangan menjadi bagian dari proses pembentukan karakter. Semangat
+        untuk bangkit setelah mengalami kesulitan menjadi salah satu nilai
+        penting yang dibawa pulang oleh para peserta.
+      </p>
+
+      <p>
+        Prestasi ini juga menjadi motivasi bagi seluruh warga
+        <strong>SDN Kebonagung 1 Sukodono</strong> untuk terus mendukung
+        peserta didik dalam mengembangkan potensi mereka, baik di bidang
+        akademik maupun nonakademik.
+      </p>
+
+      <!-- QUOTE -->
+      <div class="quote">
+        <div class="icon">🔥🏆🔥</div>
+
+        <h3>
+          "Berani Bertanding, Pantang Menyerah,
+          Raih Prestasi!"
+        </h3>
+
+        <p>
+          Kemenangan adalah hasil dari kerja keras,
+          kekompakan, disiplin, dan semangat untuk terus berjuang.
+        </p>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      🏫 <strong>SDN Kebonagung 1 Sukodono</strong>
+    </p>
+
+    <p>
+      Terus berprestasi, terus menginspirasi, dan terus semangat! 🌟
+    </p>
+
+    <p style="margin-top:10px; font-size:13px;">
+      © 2026 SDN Kebonagung 1 Sukodono
+    </p>
+  </footer>
+
+</body>
+</html>

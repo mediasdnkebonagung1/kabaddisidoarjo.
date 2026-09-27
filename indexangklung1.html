@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prestasi Angklung SDN Kebonagung 1</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background:
+        linear-gradient(rgba(247, 250, 239, 0.94), rgba(247, 250, 239, 0.94)),
+        repeating-linear-gradient(
+          45deg,
+          #e8d5a5 0px,
+          #e8d5a5 10px,
+          #d6bc82 10px,
+          #d6bc82 20px
+        );
+      color: #29351d;
+      line-height: 1.8;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #fffdf7;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(55, 63, 25, 0.2);
+      border: 5px solid #c89b3c;
+    }
+
+    /* HEADER */
+    .header {
+      position: relative;
+      text-align: center;
+      padding: 55px 25px 50px;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(26, 82, 46, 0.96), rgba(73, 117, 53, 0.93));
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "🎋  ♫  ♪  ♫  🎋";
+      position: absolute;
+      top: 12px;
+      left: 0;
+      right: 0;
+      font-size: 32px;
+      opacity: 0.28;
+      letter-spacing: 15px;
+    }
+
+    .header::after {
+      content: "🎋";
+      position: absolute;
+      right: 35px;
+      bottom: 15px;
+      font-size: 70px;
+      opacity: 0.18;
+      transform: rotate(-10deg);
+    }
+
+    .logo-angklung {
+      font-size: 65px;
+      margin-bottom: 5px;
+      animation: goyang 2s infinite ease-in-out;
+    }
+
+    @keyframes goyang {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .header h1 {
+      font-size: 35px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-shadow: 2px 3px 5px rgba(0,0,0,0.3);
+    }
+
+    .header h2 {
+      font-size: 21px;
+      font-weight: 500;
+      color: #ffe9a8;
+    }
+
+    .tanggal {
+      display: inline-block;
+      margin-top: 20px;
+      background: #d39b2f;
+      color: white;
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    }
+
+    /* ORNAMEN */
+    .ornamen {
+      text-align: center;
+      padding: 15px;
+      background: #f2e3b5;
+      color: #775b1b;
+      font-size: 28px;
+      letter-spacing: 12px;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 40px 55px;
+    }
+
+    .judul-berita {
+      text-align: center;
+      color: #235b32;
+      font-size: 29px;
+      margin-bottom: 8px;
+    }
+
+    .subjudul {
+      text-align: center;
+      color: #9b7422;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #edf7df, #fff8dc);
+      border-left: 7px solid #c79832;
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .highlight strong {
+      color: #1e6035;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .prestasi {
+      display: flex;
+      gap: 20px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .prestasi-card {
+      flex: 1;
+      min-width: 230px;
+      padding: 25px;
+      text-align: center;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #fff4c9, #f8e4a0);
+      border: 2px solid #d0a23d;
+      box-shadow: 0 7px 15px rgba(100,80,20,0.12);
+    }
+
+    .prestasi-card .medali {
+      font-size: 45px;
+    }
+
+    .prestasi-card h3 {
+      color: #176034;
+      margin: 5px 0;
+    }
+
+    .prestasi-card p {
+      text-align: center;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    /* FOTO */
+    .galeri {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin: 35px 0;
+    }
+
+    .foto {
+      background: white;
+      padding: 10px;
+      border-radius: 18px;
+      border: 3px solid #d2a443;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transition: 0.3s;
+    }
+
+    .foto:hover {
+      transform: translateY(-7px) rotate(1deg);
+      box-shadow: 0 14px 25px rgba(0,0,0,0.18);
+    }
+
+    .foto img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .caption {
+      text-align: center;
+      padding: 12px 5px 5px;
+      color: #5b501f;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* KUTIPAN */
+    .quote {
+      margin: 35px 0;
+      padding: 30px;
+      text-align: center;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #205b34, #4c873e);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote::before {
+      content: "♫";
+      position: absolute;
+      font-size: 120px;
+      opacity: 0.08;
+      left: 20px;
+      top: -20px;
+    }
+
+    .quote::after {
+      content: "♪";
+      position: absolute;
+      font-size: 120px;
+      opacity: 0.08;
+      right: 20px;
+      bottom: -40px;
+    }
+
+    .quote h3 {
+      color: #ffe69b;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .quote p {
+      text-align: center;
+      font-size: 18px;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #173d26;
+      color: white;
+    }
+
+    .footer h3 {
+      color: #f5d77c;
+      margin-bottom: 8px;
+    }
+
+    .footer p {
+      text-align: center;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .motif {
+      margin-top: 15px;
+      font-size: 28px;
+      letter-spacing: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .content {
+        padding: 30px 20px;
+      }
+
+      .header h1 {
+        font-size: 25px;
+      }
+
+      .header h2 {
+        font-size: 17px;
+      }
+
+      .galeri {
+        grid-template-columns: 1fr;
+      }
+
+      .foto img {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo-angklung">🎋</div>
+
+      <h1>Gemilang Prestasi Angklung</h1>
+      <h2>SDN Kebonagung 1 Sukodono</h2>
+
+      <div class="tanggal">
+        📅 15 Agustus 2026
+      </div>
+    </header>
+
+    <div class="ornamen">
+      🎋 ♫ ♪ ♫ 🎋 ♫ ♪ ♫ 🎋
+    </div>
+
+    <!-- ISI BERITA -->
+    <main class="content">
+
+      <h2 class="judul-berita">
+        Harmoni Angklung, Semangat Juang, dan Prestasi Membanggakan
+      </h2>
+
+      <div class="subjudul">
+        Lomba Angklung Tingkat SD se-Surabaya dan Sidoarjo
+      </div>
+
+      <div class="highlight">
+        <strong>🏆 Kabar membanggakan datang dari SDN Kebonagung 1 Sukodono!</strong>
+        Pada tanggal <strong>15 Agustus 2026</strong>, siswa-siswi SDN Kebonagung 1
+        menunjukkan kemampuan terbaiknya dalam ajang
+        <strong>Lomba Angklung Tingkat Sekolah Dasar se-Surabaya dan Sidoarjo</strong>
+        yang diselenggarakan oleh <strong>Perumahan Rewwin Waru</strong>.
+      </div>
+
+      <p>
+        Dengan penuh semangat, percaya diri, dan kekompakan, para peserta dari
+        SDN Kebonagung 1 membawa nama baik sekolah dalam sebuah kompetisi seni
+        yang tidak hanya menguji kemampuan bermusik, tetapi juga melatih
+        kedisiplinan, kerja sama, konsentrasi, serta keberanian untuk tampil
+        di hadapan banyak orang.
+      </p>
+
+      <p>
+        Angklung bukan sekadar alat musik tradisional. Di balik setiap bunyi
+        yang dihasilkan, terdapat pesan tentang kebersamaan. Setiap pemain
+        memiliki peran masing-masing dan harus mampu menjaga irama agar
+        tercipta sebuah harmoni yang indah. Semangat inilah yang ditunjukkan
+        oleh para siswa SDN Kebonagung 1 sepanjang perlombaan.
+      </p>
+
+      <p>
+        Sejak persiapan hingga penampilan di atas panggung, para peserta
+        berlatih dengan sungguh-sungguh. Mereka belajar mendengarkan satu sama
+        lain, mengikuti aba-aba, menjaga tempo, dan memberikan penampilan
+        terbaik. Tidak selalu mudah, namun setiap tantangan justru menjadi
+        motivasi untuk terus belajar dan berkembang.
+      </p>
+
+      <!-- PRESTASI -->
+      <div class="prestasi">
+
+        <div class="prestasi-card">
+          <div class="medali">🥇</div>
+          <h3>JUARA 1</h3>
+          <p>Lomba Angklung Tingkat SD</p>
+        </div>
+
+        <div class="prestasi-card">
+          <div class="medali">🏅</div>
+          <h3>JUARA 4</h3>
+          <p>Lomba Angklung Tingkat SD</p>
+        </div>
+
+      </div>
+
+      <p>
+        Perjuangan tersebut akhirnya membuahkan hasil yang sangat membanggakan.
+        SDN Kebonagung 1 berhasil meraih <strong>Juara 1 dan Juara 4</strong>
+        dalam Lomba Angklung Tingkat SD se-Surabaya dan Sidoarjo. Prestasi ini
+        menjadi bukti bahwa kerja keras, latihan yang konsisten, kekompakan,
+        dan keberanian untuk tampil mampu menghasilkan pencapaian yang luar
+        biasa.
+      </p>
+
+      <!-- GALERI 2 FOTO -->
+      <section class="galeri">
+
+        <div class="foto">
+          <!-- GANTI foto-angklung-1.jpg DENGAN FOTO KEGIATAN ASLI -->
+          <img src="ak3.jpeg"
+               alt="Penampilan Angklung SDN Kebonagung 1">
+          <div class="caption">
+            🎋 Penampilan penuh semangat siswa SDN Kebonagung 1
+          </div>
+        </div>
+
+        <div class="foto">
+          <!-- GANTI foto-angklung-2.jpg DENGAN FOTO KEGIATAN ASLI -->
+          <img src="ak2.jpeg"
+               alt="Prestasi Lomba Angklung SDN Kebonagung 1">
+          <div class="caption">
+            🏆 Momen kebanggaan meraih prestasi dalam lomba angklung
+          </div>
+        </div>
+
+      </section>
+
+      <p>
+        Prestasi ini tentunya tidak diraih secara instan. Ada proses panjang
+        yang menjadi bagian penting dari perjalanan para peserta. Setiap
+        latihan, setiap kesalahan yang diperbaiki, setiap nada yang dipelajari,
+        hingga rasa lelah yang berhasil dilewati menjadi pengalaman berharga.
+        Dari proses tersebut tumbuh sebuah keyakinan bahwa keberhasilan akan
+        datang kepada mereka yang mau berusaha dan tidak mudah menyerah.
+      </p>
+
+      <p>
+        Lebih dari sekadar mendapatkan piala, keikutsertaan dalam lomba ini
+        menjadi pengalaman pendidikan yang sangat berarti bagi peserta didik.
+        Mereka belajar bahwa sebuah kelompok akan menjadi kuat ketika setiap
+        anggotanya saling mendukung. Seperti halnya angklung, satu suara saja
+        mungkin terdengar sederhana, tetapi ketika dimainkan bersama dengan
+        irama dan kekompakan yang tepat, akan tercipta sebuah harmoni yang
+        indah dan penuh makna.
+      </p>
+
+      <p>
+        Keberhasilan ini juga menjadi motivasi bagi seluruh keluarga besar
+        SDN Kebonagung 1 untuk terus mengembangkan potensi peserta didik,
+        khususnya dalam bidang seni dan budaya. Semoga prestasi ini menjadi
+        langkah awal untuk meraih lebih banyak pencapaian pada kesempatan
+        berikutnya.
+      </p>
+
+      <!-- QUOTE -->
+      <div class="quote">
+        <h3>🎶 Semangat Sang Juara 🎶</h3>
+        <p>
+          "Satu angklung mungkin hanya menghasilkan satu nada,
+          tetapi ketika dimainkan bersama dengan hati dan kekompakan,
+          terciptalah harmoni yang luar biasa."
+        </p>
+      </div>
+
+      <p>
+        Selamat kepada seluruh peserta lomba angklung SDN Kebonagung 1
+        Sukodono atas prestasi yang telah diraih. Teruslah berlatih, teruslah
+        berkarya, dan jangan pernah takut untuk bermimpi menjadi yang terbaik.
+        Jadikan setiap perlombaan sebagai tempat untuk belajar, setiap
+        tantangan sebagai kesempatan untuk tumbuh, dan setiap prestasi sebagai
+        motivasi untuk melangkah lebih jauh.
+      </p>
+
+      <p>
+        <strong>
+          🎋 SDN Kebonagung 1 — Berkarya dengan Harmoni, Berprestasi dengan
+          Semangat! 🎋
+        </strong>
+      </p>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <h3>SDN KEBONAGUNG 1 SUKODONO</h3>
+      <p>
+        Mengembangkan potensi peserta didik melalui pendidikan,
+        seni, budaya, dan prestasi.
+      </p>
+
+      <div class="motif">
+        🎋 ♫ ♪ ♫ 🎋
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

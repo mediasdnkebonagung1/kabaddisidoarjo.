@@ -1,0 +1,453 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Angklung Jawa Timur - SDN Kebonagung 1</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                linear-gradient(rgba(245, 239, 214, 0.94), rgba(238, 225, 182, 0.94)),
+                repeating-linear-gradient(
+                    90deg,
+                    #d7b46a 0px,
+                    #d7b46a 18px,
+                    #c89d51 19px,
+                    #c89d51 22px
+                );
+            color: #3e2a16;
+            line-height: 1.8;
+        }
+
+        .header {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 65px 20px;
+            background: linear-gradient(135deg, #14532d, #287d46, #9b6b25);
+            color: white;
+            border-bottom: 8px solid #d6a84f;
+        }
+
+        .header::before,
+        .header::after {
+            content: "🎋";
+            position: absolute;
+            font-size: 85px;
+            opacity: 0.35;
+            top: 20px;
+        }
+
+        .header::before {
+            left: 25px;
+            transform: rotate(-15deg);
+        }
+
+        .header::after {
+            right: 25px;
+            transform: rotate(15deg);
+        }
+
+        .angklung {
+            font-size: 58px;
+            animation: goyang 1.5s infinite ease-in-out;
+        }
+
+        @keyframes goyang {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .header h1 {
+            font-size: 38px;
+            margin: 10px 0;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.35);
+        }
+
+        .header p {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f6c453, #d9911e);
+            color: #4d2d08;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.18);
+            margin-bottom: 20px;
+        }
+
+        .article {
+            background: rgba(255,255,255,0.96);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 12px 30px rgba(62,42,22,0.22);
+            border: 3px solid #d3a54b;
+        }
+
+        .article h2 {
+            color: #14532d;
+            font-size: 31px;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: #8a611d;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .opening {
+            font-size: 19px;
+            font-weight: 500;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .article p {
+            text-align: justify;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+        .highlight {
+            margin: 28px 0;
+            padding: 25px;
+            border-left: 7px solid #d99a27;
+            background: linear-gradient(90deg, #fff4cf, #fffdf4);
+            border-radius: 12px;
+        }
+
+        .highlight h3 {
+            color: #14532d;
+            margin-bottom: 10px;
+            font-size: 23px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin: 30px 0;
+        }
+
+        .photo-card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+            border: 3px solid #d3a54b;
+            transition: 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-7px) rotate(1deg);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 310px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            padding: 13px;
+            text-align: center;
+            font-weight: bold;
+            color: #14532d;
+            background: #fff8df;
+        }
+
+        .achievement {
+            background: linear-gradient(135deg, #14532d, #287d46);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .achievement .trophy {
+            font-size: 50px;
+            margin-bottom: 8px;
+        }
+
+        .achievement h3 {
+            font-size: 30px;
+            color: #ffe08a;
+        }
+
+        .achievement p {
+            text-align: center;
+            font-size: 19px;
+            margin: 5px 0;
+        }
+
+        .quote {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 30px;
+            background: #f4e4b2;
+            border-radius: 18px;
+            border: 2px dashed #a97624;
+        }
+
+        .quote p {
+            text-align: center;
+            font-size: 23px;
+            font-weight: bold;
+            color: #14532d;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px 20px;
+            background: #14532d;
+            color: white;
+        }
+
+        .footer strong {
+            color: #f7ce62;
+        }
+
+        @media (max-width: 700px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .article {
+                padding: 22px;
+            }
+
+            .photo-card img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="angklung">🎋🎶</div>
+
+        <h1>SDN KEBONAGUNG 1 SUKODONO</h1>
+
+        <p>
+            Semangat Berkarya • Melestarikan Budaya • Meraih Prestasi
+        </p>
+
+        <div class="angklung">🎶🎋</div>
+    </header>
+
+    <main class="container">
+
+        <div style="text-align:center;">
+            <span class="badge">🏆 PRESTASI SENI & BUDAYA 🏆</span>
+            <a href="index.html"
+   class="inline-block mt-4 text-green-600 font-medium hover:text-green-800">
+   kembali ke beranda →
+
+        </div>
+
+        <article class="article">
+
+            <h2>
+                🎶 Harmoni Angklung SDN Kebonagung 1
+                Raih <em>Best Costume</em> di Festival Angklung Jawa Timur
+            </h2>
+
+            <div class="date">
+                📅 23 Agustus 2026 &nbsp; | &nbsp; 📍 Royal Plaza Surabaya
+            </div>
+
+            <p class="opening">
+                Alunan angklung kembali menggema membawa semangat dan kebanggaan
+                keluarga besar <strong>SDN Kebonagung 1 Sukodono</strong>.
+                Pada tanggal <strong>23 Agustus 2026</strong>, para siswa dengan
+                penuh percaya diri mengikuti <strong>Kejuaraan Festival Angklung
+                Jawa Timur</strong> yang diselenggarakan oleh
+                <strong>Royal Plaza Surabaya</strong>.
+            </p>
+
+            <p>
+                Ajang tersebut bukan sekadar perlombaan seni musik, tetapi menjadi
+                kesempatan berharga bagi para siswa untuk menunjukkan kreativitas,
+                keberanian, kekompakan, serta kecintaan terhadap budaya Indonesia.
+                Dengan membawa semangat untuk memberikan penampilan terbaik,
+                para peserta SDN Kebonagung 1 tampil dengan penuh energi dan
+                keyakinan.
+            </p>
+
+            <!-- FOTO 1 -->
+            <div class="gallery">
+
+                <div class="photo-card">
+                    <img
+                        src="ak5.jpeg"
+                        alt="Penampilan peserta SDN Kebonagung 1 dalam Festival Angklung Jawa Timur"
+                    >
+                    <div class="photo-caption">
+                        🎵 Penampilan Angklung SDN Kebonagung 1
+                    </div>
+                </div>
+
+                <!-- FOTO 2 -->
+                <div class="photo-card">
+                    <img
+                        src="ak6.jpeg"
+                        alt="Peserta SDN Kebonagung 1 dengan kostum festival angklung"
+                    >
+                    <div class="photo-caption">
+                        🎋 Kekompakan dan Kreativitas Peserta
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="achievement">
+                <div class="trophy">🏆</div>
+
+                <h3>BEST COSTUME</h3>
+
+                <p>
+                    Kejuaraan Festival Angklung Jawa Timur
+                </p>
+
+                <p>
+                    Penyelenggara: <strong>Royal Plaza Surabaya</strong>
+                </p>
+            </div>
+
+            <p>
+                Salah satu hal yang membuat penampilan SDN Kebonagung 1 semakin
+                istimewa adalah kreativitas dalam menampilkan kostum yang menarik
+                dan selaras dengan karakter pertunjukan. Perpaduan antara musik,
+                gerakan, kekompakan, dan kostum menjadikan penampilan para siswa
+                semakin hidup serta mampu memberikan kesan tersendiri bagi para
+                penonton.
+            </p>
+
+            <p>
+                Meraih penghargaan <strong>Best Costume</strong> menjadi bukti
+                bahwa setiap unsur dalam sebuah pertunjukan memiliki arti penting.
+                Para siswa belajar bahwa keberhasilan tidak hanya ditentukan oleh
+                hasil akhir, tetapi juga oleh proses panjang yang dilalui dengan
+                latihan, kedisiplinan, kerja sama, kreativitas, dan keberanian
+                untuk tampil di hadapan banyak orang.
+            </p>
+
+            <div class="highlight">
+                <h3>🎋 Angklung Mengajarkan Arti Kebersamaan</h3>
+
+                <p>
+                    Angklung merupakan alat musik yang memiliki keistimewaan.
+                    Setiap pemain memegang peran penting untuk menghasilkan sebuah
+                    harmoni. Tidak ada satu suara yang dapat berdiri sendiri.
+                    Semua harus bermain bersama, saling mendengarkan, menjaga
+                    tempo, dan mengikuti arahan.
+                </p>
+
+                <p>
+                    Nilai tersebut menjadi pembelajaran yang sangat berharga bagi
+                    siswa. Mereka belajar bahwa sebuah prestasi akan semakin indah
+                    ketika diraih melalui kebersamaan. Satu orang mungkin memiliki
+                    kemampuan yang hebat, tetapi sebuah tim yang kompak mampu
+                    menciptakan harmoni yang luar biasa.
+                </p>
+            </div>
+
+            <p>
+                Semangat para peserta terlihat sejak persiapan hingga penampilan
+                berlangsung. Rasa lelah setelah latihan tidak menyurutkan tekad
+                mereka. Justru setiap tantangan menjadi motivasi untuk terus
+                memperbaiki diri. Mereka datang bukan hanya untuk mengikuti
+                perlombaan, tetapi juga membawa nama baik sekolah dan menunjukkan
+                bahwa generasi muda mampu menjadi bagian dari pelestarian seni
+                budaya bangsa.
+            </p>
+
+            <p>
+                Dukungan dari guru, orang tua, dan seluruh keluarga besar
+                SDN Kebonagung 1 menjadi energi tambahan bagi para peserta.
+                Sorakan, doa, dan motivasi yang diberikan menjadi penyemangat
+                agar mereka tampil maksimal. Kebersamaan tersebut menjadi bagian
+                penting dari perjalanan menuju sebuah prestasi.
+            </p>
+
+            <p>
+                Penghargaan <strong>Best Costume</strong> pada Festival Angklung
+                Jawa Timur ini diharapkan menjadi motivasi bagi seluruh siswa
+                SDN Kebonagung 1 untuk semakin mencintai seni dan budaya Indonesia.
+                Prestasi ini bukanlah akhir perjalanan, melainkan langkah awal
+                untuk terus berkarya, berlatih, dan berani menunjukkan kemampuan
+                terbaik di berbagai kesempatan.
+            </p>
+
+            <div class="quote">
+                <p>
+                    “Bunyikan angklungnya, satukan iramanya,
+                    kobarkan semangatnya, dan raih prestasinya!”
+                </p>
+
+                <br>
+
+                <strong>
+                    🎋 SDN Kebonagung 1 — Berani Berkarya, Kompak Berkarya,
+                    Hebat Berprestasi! 🏆
+                </strong>
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="footer">
+        <p>
+            🎶 <strong>SDN Kebonagung 1 Sukodono</strong> 🎋
+        </p>
+
+        <p>
+            Melestarikan Budaya Indonesia melalui Seni,
+            Kreativitas, dan Prestasi.
+        </p>
+
+        <p style="margin-top:10px;">
+            © 2026 SDN Kebonagung 1 Sukodono
+        </p>
+    </footer>
+
+</body>
+</html>
+```

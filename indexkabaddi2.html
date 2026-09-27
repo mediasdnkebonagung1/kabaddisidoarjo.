@@ -1,0 +1,552 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Prestasi Gemilang Kabaddi Arskasa SDN Kebonagung 1</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, #e0f7fa, transparent 35%),
+        linear-gradient(135deg, #e3f2fd, #bbdefb, #e0f7fa);
+      color: #263238;
+      line-height: 1.85;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #01579b, #0288d1, #00acc1);
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    }
+
+    .header::before {
+      content: "🏆";
+      position: absolute;
+      left: 5%;
+      top: 15px;
+      font-size: 90px;
+      opacity: .12;
+      transform: rotate(-15deg);
+    }
+
+    .header::after {
+      content: "🥇";
+      position: absolute;
+      right: 5%;
+      bottom: 5px;
+      font-size: 90px;
+      opacity: .12;
+      transform: rotate(15deg);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 2px 3px 5px rgba(0,0,0,.25);
+    }
+
+    .header p {
+      font-size: 18px;
+      margin-top: 12px;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1050px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .article {
+      background: rgba(255,255,255,.97);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.12);
+      border-top: 8px solid #0288d1;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffb300, #f57c00);
+      color: white;
+      font-weight: bold;
+      padding: 8px 20px;
+      border-radius: 30px;
+      box-shadow: 0 5px 12px rgba(245,124,0,.3);
+    }
+
+    h2 {
+      color: #01579b;
+      font-size: 31px;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #607d8b;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .opening {
+      font-size: 19px;
+      font-weight: 600;
+      color: #014f86;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 17px;
+    }
+
+    /* HIGHLIGHT */
+    .highlight {
+      background: linear-gradient(135deg, #e1f5fe, #e0f7fa);
+      border-left: 7px solid #00acc1;
+      padding: 23px;
+      border-radius: 15px;
+      margin: 30px 0;
+    }
+
+    .highlight strong {
+      color: #006064;
+      font-size: 19px;
+    }
+
+    /* FOTO */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin: 35px 0;
+    }
+
+    .photo-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 7px 20px rgba(0,0,0,.15);
+      border: 3px solid #e1f5fe;
+      transition: .3s;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 14px 28px rgba(0,0,0,.2);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .caption {
+      text-align: center;
+      padding: 13px;
+      font-weight: bold;
+      color: #0277bd;
+    }
+
+    /* PRESTASI */
+    .prestasi-title {
+      text-align: center;
+      color: #01579b;
+      margin-top: 35px;
+    }
+
+    .prestasi {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin: 25px 0 35px;
+    }
+
+    .prestasi-box {
+      background: linear-gradient(135deg, #fff8e1, #ffecb3);
+      border: 3px solid #ffc107;
+      border-radius: 20px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 7px 18px rgba(255,193,7,.2);
+    }
+
+    .medal {
+      font-size: 58px;
+    }
+
+    .prestasi-box h3 {
+      color: #e65100;
+      font-size: 21px;
+      margin: 5px 0;
+    }
+
+    .prestasi-box p {
+      text-align: center;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* INFO */
+    .info {
+      background: #f5faff;
+      border: 2px solid #b3e5fc;
+      border-radius: 20px;
+      padding: 28px;
+      margin-top: 35px;
+    }
+
+    .info h3 {
+      color: #0277bd;
+      margin-top: 0;
+      font-size: 23px;
+    }
+
+    .info p {
+      margin: 7px 0;
+      text-align: left;
+    }
+
+    /* QUOTE */
+    .quote {
+      background: linear-gradient(135deg, #01579b, #00838f);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin: 35px 0;
+      font-size: 20px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+
+    /* PENUTUP */
+    .closing {
+      background: linear-gradient(135deg, #0288d1, #00acc1);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 35px;
+      font-size: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: #455a64;
+      font-size: 14px;
+    }
+
+    @media(max-width:700px) {
+
+      .header h1 {
+        font-size: 26px;
+      }
+
+      .article {
+        padding: 22px;
+      }
+
+      .photo-grid,
+      .prestasi {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card img {
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <h1>🏆 Kabaddi Arskasa Raih Prestasi Gemilang 🏆</h1>
+  <p>SDN Kebonagung 1 Sukodono • Semangat • Sportivitas • Prestasi</p>
+</header>
+
+<div class="container">
+
+  <article class="article">
+
+    <span class="badge">🏅 PRESTASI SISWA</span>
+
+    <h2>
+      Kabaddi Arskasa SDN Kebonagung 1 Sukses Meraih Dua Gelar Juara 1
+      pada KEJURKOT Kabaddi Beach Surabaya 2026
+    </h2>
+
+    <div class="subtitle">
+      Semangat pantang menyerah para atlet muda mengantarkan Kabaddi Arskasa
+      menuju podium tertinggi.
+    </div>
+
+    <p class="opening">
+      Kabar membanggakan kembali hadir dari SDN Kebonagung 1 Sukodono.
+      Melalui klub olahraga <strong>Kabaddi Arskasa</strong>, peserta didik
+      berhasil menunjukkan kemampuan terbaik dan mengukir prestasi membanggakan
+      dalam ajang <strong>KEJURKOT Kabaddi Beach Surabaya 2026</strong>.
+    </p>
+
+    <p>
+      Kejuaraan ini diselenggarakan oleh <strong>FOKSI Kota Surabaya</strong>
+      dan menjadi salah satu momentum penting bagi para atlet muda untuk
+      mengembangkan kemampuan dalam olahraga kabaddi. Tidak hanya menjadi
+      ajang untuk mencari juara, kompetisi ini juga menjadi tempat bagi para
+      peserta untuk belajar tentang keberanian, kedisiplinan, kerja sama,
+      konsentrasi, dan sportivitas.
+    </p>
+
+    <p>
+      Sejak persiapan hingga pertandingan berlangsung, para atlet Kabaddi
+      Arskasa menunjukkan kesungguhan yang luar biasa. Latihan yang dilakukan
+      secara konsisten menjadi bekal penting untuk menghadapi pertandingan.
+      Setiap gerakan, strategi, dan kerja sama tim terus diasah agar para atlet
+      mampu tampil maksimal ketika berada di arena pertandingan.
+    </p>
+
+    <!-- FOTO -->
+    <div class="photo-grid">
+
+      <div class="photo-card">
+        <img src="kassss.jpeg"
+             alt="Tim Kabaddi Arskasa SDN Kebonagung 1">
+        <div class="caption">
+          🏆 Tim Kabaddi Arskasa SDN Kebonagung 1
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="kab2.jpeg"
+             alt="Atlet Kabaddi Arskasa bertanding">
+        <div class="caption">
+          💪 Perjuangan Atlet Kabaddi Arskasa
+        </div>
+      </div>
+
+    </div>
+
+    <div class="highlight">
+      <strong>🔥 Perjuangan yang Tidak Mengenal Kata Menyerah!</strong>
+      <br><br>
+
+      Dalam setiap pertandingan, para atlet harus mampu menjaga konsentrasi,
+      keberanian, dan kekompakan. Tantangan yang dihadapi tidak membuat mereka
+      gentar. Justru setiap tantangan menjadi motivasi untuk memberikan
+      penampilan terbaik.
+      <br><br>
+
+      Dengan semangat <strong>pantang menyerah</strong>, para atlet terus
+      berjuang dari awal hingga akhir pertandingan. Mereka membuktikan bahwa
+      keberhasilan tidak datang secara instan, melainkan melalui latihan,
+      kerja keras, kedisiplinan, kekompakan, dan doa.
+    </div>
+
+    <p>
+      Perjuangan tersebut akhirnya membuahkan hasil yang sangat membanggakan.
+      Kabaddi Arskasa berhasil menempatkan atlet-atlet terbaiknya di posisi
+      tertinggi dan membawa pulang <strong>dua gelar Juara 1</strong>.
+    </p>
+
+    <h2 class="prestasi-title">
+      🥇 Dua Gelar Juara untuk Kabaddi Arskasa
+    </h2>
+
+    <div class="prestasi">
+
+      <div class="prestasi-box">
+        <div class="medal">🥇</div>
+
+        <h3>JUARA 1 PUTRA</h3>
+
+        <p>
+          Kategori 50 kg
+        </p>
+      </div>
+
+      <div class="prestasi-box">
+        <div class="medal">🥇</div>
+
+        <h3>JUARA 1 PUTRI</h3>
+
+        <p>
+          Kategori 50 kg
+        </p>
+      </div>
+
+    </div>
+
+    <p>
+      Keberhasilan meraih Juara 1 putra dan Juara 1 putri kategori 50 kg
+      menjadi pencapaian yang sangat berarti bagi Kabaddi Arskasa dan SDN
+      Kebonagung 1. Prestasi tersebut sekaligus menjadi bukti bahwa kegiatan
+      ekstrakurikuler olahraga di sekolah dapat menjadi wadah yang positif
+      untuk mengembangkan bakat dan potensi peserta didik.
+    </p>
+
+    <p>
+      Lebih dari sekadar mendapatkan medali, pengalaman bertanding memberikan
+      banyak pelajaran berharga bagi para atlet. Mereka belajar bagaimana
+      menghadapi tekanan pertandingan, menghargai lawan, menerima hasil dengan
+      lapang dada, serta tetap berusaha memberikan yang terbaik meskipun
+      menghadapi berbagai tantangan.
+    </p>
+
+    <p>
+      Nilai-nilai tersebut sejalan dengan semangat pendidikan di SDN
+      Kebonagung 1 yang tidak hanya berfokus pada kemampuan akademik, tetapi
+      juga mendorong peserta didik untuk berkembang melalui berbagai kegiatan
+      positif. Olahraga menjadi salah satu sarana untuk membentuk karakter
+      siswa agar lebih disiplin, percaya diri, bertanggung jawab, dan mampu
+      bekerja sama dengan orang lain.
+    </p>
+
+    <div class="quote">
+      💙 “Jangan takut menghadapi tantangan.
+      Terus berlatih, terus berjuang, dan jangan pernah menyerah
+      sebelum memberikan kemampuan terbaik!” 💙
+    </div>
+
+    <p>
+      Di balik prestasi yang diraih para atlet, terdapat kerja keras dan
+      pendampingan dari para pelatih. Klub Kabaddi Arskasa dibimbing oleh
+      <strong>Richa Putri Agustina</strong> dan
+      <strong>Moch. Reza Febriliant Arifin</strong> yang terus memberikan
+      arahan, motivasi, serta pembinaan kepada para atlet.
+    </p>
+
+    <p>
+      Peran pelatih sangat penting dalam mempersiapkan atlet, mulai dari
+      latihan teknik dasar, strategi permainan, kekuatan fisik, kekompakan
+      tim, hingga membangun mental bertanding. Dukungan dan bimbingan tersebut
+      menjadi bagian penting dari perjalanan para atlet hingga mampu berdiri
+      di podium juara.
+    </p>
+
+    <p>
+      Prestasi ini juga menjadi motivasi bagi seluruh peserta didik SDN
+      Kebonagung 1 untuk berani mengembangkan potensi masing-masing. Setiap
+      anak memiliki kesempatan untuk berprestasi melalui bidang yang
+      diminatinya. Dengan latihan yang tekun, semangat yang kuat, dukungan
+      guru dan orang tua, serta kemauan untuk terus belajar, berbagai prestasi
+      dapat diraih.
+    </p>
+
+    <p>
+      Kemenangan Kabaddi Arskasa diharapkan tidak berhenti sampai di sini.
+      Prestasi ini menjadi awal untuk terus berkembang dan meraih pencapaian
+      yang lebih tinggi pada berbagai kejuaraan berikutnya. Para atlet
+      diharapkan tetap rendah hati, terus berlatih, menjaga kesehatan,
+      menjunjung tinggi sportivitas, dan selalu membawa nama baik SDN
+      Kebonagung 1.
+    </p>
+
+    <div class="info">
+
+      <h3>📋 Informasi Kejuaraan</h3>
+
+      <p>
+        <strong>🏷️ Nama Klub:</strong>
+        Kabaddi Arskasa
+      </p>
+
+      <p>
+        <strong>🏆 Nama Kejuaraan:</strong>
+        KEJURKOT Kabaddi Beach Surabaya 2026
+      </p>
+
+      <p>
+        <strong>🏢 Penyelenggara:</strong>
+        FOKSI Kota Surabaya
+      </p>
+
+      <p>
+        <strong>🥇 Prestasi Putra:</strong>
+        Juara 1 Kategori 50 kg
+      </p>
+
+      <p>
+        <strong>🥇 Prestasi Putri:</strong>
+        Juara 1 Kategori 50 kg
+      </p>
+
+      <p>
+        <strong>👩‍🏫 Pelatih:</strong>
+        Richa Putri Agustina
+      </p>
+
+      <p>
+        <strong>👨‍🏫 Pelatih:</strong>
+        Moch. Reza Febriliant Arifin
+      </p>
+
+    </div>
+
+    <div class="closing">
+
+      🌟 <strong>SELAMAT DAN SUKSES UNTUK KABADDI ARSKASA!</strong> 🌟
+
+      <br><br>
+
+      Selamat kepada seluruh atlet Kabaddi Arskasa SDN Kebonagung 1
+      atas keberhasilan meraih Juara 1 Putra dan Juara 1 Putri kategori
+      50 kg pada KEJURKOT Kabaddi Beach Surabaya 2026.
+
+      <br><br>
+
+      Semoga prestasi ini menjadi inspirasi bagi seluruh peserta didik
+      untuk terus berani bermimpi, berani mencoba, berani berjuang,
+      dan tidak mudah menyerah.
+
+      <br><br>
+
+      Teruslah berlatih dengan penuh semangat,
+      junjung tinggi sportivitas, hormati lawan,
+      dan jadikan setiap pertandingan sebagai pengalaman
+      untuk menjadi lebih baik.
+
+      <br><br>
+
+      <strong>
+        🏆 SATU TIM • SATU SEMANGAT • SATU TUJUAN • RAIH PRESTASI! 🏆
+      </strong>
+
+      <br><br>
+
+      <strong>
+        💙 SDN KEBONAGUNG 1 — BERPRESTASI, BERKARAKTER,
+        DAN PANTANG MENYERAH! 💙
+      </strong>
+
+    </div>
+
+  </article>
+
+</div>
+
+<footer>
+  © 2026 SDN Kebonagung 1 Sukodono • Kabaddi Arskasa 🏆
+</footer>
+
+</body>
+</html>
+```
